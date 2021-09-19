@@ -18,7 +18,11 @@ Smart station : uber
     CRUD + PRIME + FUEL
  }
 
+<<<<<<< HEAD
  3. espace cars =>cars
+=======
+ 3. espace cars =>yassine
+>>>>>>> cdd46ba8359e4d8488af0def15f281c5bf14954a
  {
     CRUD
  }
@@ -32,4 +36,7 @@ Smart station : uber
  {
     CRUD
  }
+
+ ## local development 
+ 1. feature-car for yassine
 
