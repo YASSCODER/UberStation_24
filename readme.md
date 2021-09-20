@@ -32,7 +32,7 @@ Smart station : uber
     CRUD
     {
       1. localisation du garage
-      2. typed de voiture
+      2. type de voiture
       3. budget
       4. numéro 
       
