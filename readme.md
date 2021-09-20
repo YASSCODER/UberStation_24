@@ -12,12 +12,12 @@ Sana.chaar@esprit.tn
 Smart station : uber
 
 ## work to devlop : 
- 1. espace client VIP => houyem
+ 1. espace client  => houyem
  {
     CRUD
  }
  
- 2. espace uber => ahmed
+ 2. espace employer => ahmed
  {
     CRUD + PRIME + FUEL
  }
