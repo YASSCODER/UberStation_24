@@ -24,7 +24,7 @@ Smart station : uber
  
  3. espace cars =>yassine
  {
-    CRUD
+    CRUD + consomation
  }
 
  4. MAP => lina
