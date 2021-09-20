@@ -27,9 +27,16 @@ Smart station : uber
     CRUD + consomation
  }
 
- 4. MAP => lina
+ 4. Garage => lina
  {
     CRUD
+    {
+      1. localisation du garage
+      2. typed de voiture
+      3. budget
+      4. numéro 
+      
+    }
  }
 
  5. ACCIDENT => aziz
