@@ -2,102 +2,96 @@
 #include<QDebug>
 #include<QSqlQuery>
 #include<QObject>
+#include<QTableView>
 
 Voiture::Voiture()
 {
-    matricule=" ";
-    marque=" ";
-    genre=" ";
-    hrE=0;
-    hrS=0;
+    MATRICULE=" ";
+    MARQUE=" ";
+    GENRE=" ";
+    HRE="";
+    HRS="";
 }
-Voiture::Voiture(QString matricule,QString marque,QString genre,int HE, int HS)
+Voiture::Voiture(QString MATRICULE,QString MARQUE,QString GENRE,QString HRE, QString HRS)
 {
-  this->matricule=matricule;
-    this->marque=marque;
-    this->genre=genre;
-    this->hrE=HE;
-    this->hrS=HS;
+  this->MATRICULE=MATRICULE;
+    this->MARQUE=MARQUE;
+    this->GENRE=GENRE;
+    this->HRE=HRE;
+    this->HRS=HRS;
 }
 QString Voiture::getMatricule()
 {
-    return matricule;
+    return MATRICULE;
 }
 QString Voiture::getMarque()
 {
-    return marque;
+    return MARQUE;
 }
 QString Voiture::getGenre()
 {
-    return genre;
+    return GENRE;
 }
-int Voiture::getHE()
+QString Voiture::getHE()
 {
-    return hrE;
+    return HRE;
 }
-int Voiture::getHS()
+QString Voiture::getHS()
 {
-    return hrS;
+    return HRS;
 }
-void Voiture::setmatricule(QString matricule)
+void Voiture::setmatricule(QString MATRICULE)
 {
-    this->matricule=matricule;
+    this->MATRICULE=MATRICULE;
 }
-void Voiture::setmarque(QString marque)
+void Voiture::setmarque(QString MARQUE)
 {
-    this->marque=marque;
+    this->MARQUE=MARQUE;
 }
-void Voiture::setgenre(QString genre)
+void Voiture::setgenre(QString GENRE)
 {
-    this->genre=genre;
+    this->GENRE=GENRE;
 }
-void Voiture::sethe(int he)
+void Voiture::sethe(QString HRE)
 {
-    this->hrE=he;
+    this->HRE=HRE;
 }
-void Voiture::seths(int hs)
+void Voiture::seths(QString HRS)
 {
-    this->hrS=hs;
+    this->HRS=HRS;
 }
 bool Voiture::ajouter()
 {
-    bool test=false;
 
       QSqlQuery query;
-      QString hrE_string = QString:: number(hrE);
-      QString hrS_string = QString:: number(hrS);
+      query.prepare("INSERT INTO VOITURE (MATRICULE, MARQUE, GENRE, HRE, HRS) "
+                    "VALUES (:MATRICULE, :MARQUE, :GENRE, :HRE, :HRS)");
+      query.bindValue(":MATRICULE", MATRICULE);
+      query.bindValue(":MARQUE", MARQUE);
+      query.bindValue(":GENRE", GENRE);
+      query.bindValue(":HRE", HRE);
+      query.bindValue(":HRS", HRS);
+      return  query.exec();
 
-      query.prepare("INSERT INTO voiture (matricule, marque, genre, heE, hrS) "
-                    "VALUES (:matricule, :marque, :genre, :hrE, :heS)");
-      query.bindValue(":matricule", matricule);
-      query.bindValue(":marque", marque);
-      query.bindValue(":genre", genre);
-      query.bindValue(":hrE", hrE);
-      query.bindValue(":hrS", hrS);
-      query.exec();
-
-    return test;
+}
+bool Voiture::supprimer(QString MATRICULE)
+{
+    QSqlQuery query;
+         query.prepare("Delete from VOITURE where MATRICULE=:MATRICULE");
+         query.bindValue(":MATRICULE", MATRICULE);
+         return query.exec();
 }
 QSqlQueryModel* Voiture::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel;
 
-          model->setQuery("SELECT * FROM voiture");
-          model->setHeaderData(0, Qt::Horizontal, QObject::tr("matricule"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("marque"));
-           model->setHeaderData(2, Qt::Horizontal, QObject::tr("genre"));
-            model->setHeaderData(3, Qt::Horizontal, QObject::tr("hrE"));
-             model->setHeaderData(4, Qt::Horizontal, QObject::tr("hrS"));
+          model->setQuery("SELECT* FROM VOITURE");
+          model->setHeaderData(0, Qt::Horizontal, QObject::tr("MATRICULE"));
+          model->setHeaderData(1, Qt::Horizontal, QObject::tr("MARQUE"));
+           model->setHeaderData(2, Qt::Horizontal, QObject::tr("GENRE"));
+            model->setHeaderData(3, Qt::Horizontal, QObject::tr("HRE"));
+             model->setHeaderData(4, Qt::Horizontal, QObject::tr("HRS"));
 
     return model;
 }
 
-bool Voiture::supprimer(QString matricule)
-{
-    QSqlQuery query;
-
-        query.prepare("Delete from voiture where matricule = :matricule");
-
-        query.bindValue(":matricule", matricule);
-        return query.exec();
-}

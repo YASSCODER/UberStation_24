@@ -18,11 +18,18 @@ public:
 private slots:
     void on_PB_Ajout_clicked();
 
+
     void on_PB_supp_clicked();
 
+    void on_btn_afficher_clicked();
+
+    void on_btn_edit_clicked();
+
+    void on_btn_option_clicked();
+
 private:
-    Voiture V;
     Ui::maquette *ui;
+    Voiture V;
 };
 
 #endif // MAQUETTE_H
