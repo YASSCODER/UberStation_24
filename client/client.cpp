@@ -6,66 +6,132 @@
 
 Client::Client()
 {
-CIN_C=" ";
-Nom=" ";
-Prenom=" ";
-NumeroTel= " ";
-Mail= " ";
+CIN = 0;
+NOM=" ";
+PRENOM=" ";
+NUMERO_TEL=0;
 }
 
-Client::Client(QString CIN_C,QString Nom,QString Prenom,QString NumeroTel,QString Mail)
-{this->CIN_C=CIN_C;
-  this->Nom=Nom;
-    this->Prenom=Prenom;
-    this->NumeroTel=NumeroTel;
-    this->Mail=Mail;
+Client::Client(int CIN,QString NOM,QString PRENOM,int NUMERO_TEL)
+{
+    this->CIN=CIN;
+  this->NOM=NOM;
+    this->PRENOM=PRENOM;
+    this->NUMERO_TEL=NUMERO_TEL;
 }
 
-QString Client::getCIN_C(){return CIN_C;}
-QString Client::getNom(){return Nom;}
-QString Client::getPrenom(){return Prenom;}
-QString Client::getNumeroTel(){return NumeroTel;}
-QString Client::getMail(){return Mail;}
-void Client::setCIN_C(QString CIN_C){this->CIN_C=CIN_C;}
-void Client::setNom(QString Nom){this->Nom=Nom;}
-void Client::setPrenom(QString Prenom){this->Prenom=Prenom;}
-void Client::setNumeroTel(QString NumeroTel){this->NumeroTel=NumeroTel;}
-void Client::setMail(QString Mail){this->Mail=Mail;}
+int Client::getCIN(){return CIN;}
+QString Client::getNOM(){return NOM;}
+QString Client::getPRENOM(){return PRENOM;}
+int Client::getNUMERO_TEL(){return NUMERO_TEL;}
+void Client::setCIN(int CIN){this->CIN=CIN;}
+void Client::setNOM(QString NOM){this->NOM=NOM;}
+void Client::setPRENOM(QString PRENOM){this->PRENOM=PRENOM;}
+void Client::setNUMERO_TEL(int NUMERO_TEL){this->NUMERO_TEL=NUMERO_TEL;}
+
 bool Client::ajouter()
 {
     QSqlQuery query;
-         query.prepare("INSERT INTO Client (CIN_C, Nom, Prenom, NumeroTel, Mail) "
-                       "VALUES (:CIN_C, :Nom, :Prenom, :NumeroTel, :Mail)");
-         query.bindValue(0, CIN_C);
-         query.bindValue(1, Nom);
-         query.bindValue(2, Prenom);
-         query.bindValue(3, NumeroTel);
-         query.bindValue(4, Mail);
+     QString CIN_string = QString::number(CIN);
+     QString NUMERO_TEL_string = QString::number(NUMERO_TEL);
+         query.prepare("INSERT INTO CLIENT (CIN, NOM, PRENOM, NUMERO_TEL) "
+                       "VALUES (:CIN, :Nom, :Prenom, :NumeroTel)");
+         query.bindValue(":CIN", CIN_string);
+         query.bindValue(":Nom", NOM);
+         query.bindValue(":Prenom", PRENOM);
+         query.bindValue(":NumeroTel", NUMERO_TEL_string);
          return query.exec();
 }
-bool Client::supprimer(QString CIN_C)
+
+bool Client::supprimer(int CIN)
 {
     QSqlQuery query;
-         query.prepare("Delete from client where CIN_C=:CIN_C");
-         query.bindValue(0, CIN_C);
+     QString CIN_string = QString::number(CIN);
+         query.prepare("Delete from CLIENT where CIN= :CIN");
+         query.bindValue(":CIN", CIN_string);
 
          return query.exec();
-
-
 }
+
 QSqlQueryModel* Client::afficher()
 {
   QSqlQueryModel* model= new QSqlQueryModel();
 
         model->setQuery("SELECT* FROM client");
-        model->setHeaderData(0, Qt::Horizontal,QObject::tr("CIN_C"));
-        model->setHeaderData(1, Qt::Horizontal,QObject::tr("Nom"));
-        model->setHeaderData(2, Qt::Horizontal,QObject::tr("Prenom"));
-        model->setHeaderData(3, Qt::Horizontal,QObject::tr("NumeroTel"));
-        model->setHeaderData(4, Qt::Horizontal,QObject::tr("Mail"));
-
-
-
+        model->setHeaderData(0, Qt::Horizontal,QObject::tr("CIN"));
+        model->setHeaderData(1, Qt::Horizontal,QObject::tr("NOM"));
+        model->setHeaderData(2, Qt::Horizontal,QObject::tr("PRENOM"));
+        model->setHeaderData(3, Qt::Horizontal,QObject::tr("NUMERO_TEL"));
 
  return model;
+}
+
+bool Client::modifier(int CIN, QString NOM, QString PRENOM, int NUMERO_TEL)
+{
+    QSqlQuery query;
+     QString CIN_string = QString::number(CIN);
+     QString NUMERO_string = QString::number(NUMERO_TEL);
+         query.prepare("UPDATE CLIENT SET CIN=:CIN, NOM=:NOM, PRENOM=:PRENOM, NUMERO_TEL=:NUMERO_TEL where CIN=:CIN");
+         query.bindValue(":CIN", CIN_string);
+         query.bindValue(":NOM", NOM);
+         query.bindValue(":PRENOM", PRENOM);
+         query.bindValue(":NUMERO_TEL", NUMERO_string);
+
+         return query.exec();
+}
+
+QSqlQueryModel *Client::rechercher(QString rech)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+        model->setQuery("select * from CLIENT where CIN LIKE '%"+rech+"%'");
+    return model;
+}
+
+
+QSqlQueryModel * Client::tri_CIN()
+{
+    QSqlQueryModel *model= new QSqlQueryModel;
+    QSqlQuery *q=new QSqlQuery();
+    q->prepare("select * from CLIENT order by CIN  asc");
+    q->exec();
+    model->setQuery(*q);
+    return  model;
+}
+
+QSqlQueryModel * Client::tri_nom()
+{
+    QSqlQueryModel *model= new QSqlQueryModel;
+    QSqlQuery *q=new QSqlQuery();
+    q->prepare("select * from CLIENT order by NOM  asc");
+    q->exec();
+    model->setQuery(*q);
+    return  model;
+}
+
+QSqlQueryModel * Client::tri_prenom()
+{
+    QSqlQueryModel *model= new QSqlQueryModel;
+    QSqlQuery *q=new QSqlQuery();
+    q->prepare("select * from CLIENT order by PRENOM  asc");
+    q->exec();
+    model->setQuery(*q);
+    return  model;
+}
+
+QSqlQueryModel * Client::tri_num()
+{
+    QSqlQueryModel *model= new QSqlQueryModel;
+    QSqlQuery *q=new QSqlQuery();
+    q->prepare("select * from CLIENT order by NUMERO_TEL  asc");
+    q->exec();
+    model->setQuery(*q);
+    return  model;
+}
+
+QSqlQueryModel * Client::wombo_combo()
+{
+    QSqlQueryModel  *model= new QSqlQueryModel;
+    model->setQuery("SELECT CIN FROM client");
+    return model;
 }

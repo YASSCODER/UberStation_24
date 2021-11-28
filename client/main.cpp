@@ -4,10 +4,12 @@
 #include "connection.h"
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    maquette m;//hne badalt
     Connection c;
+    QApplication a(argc, argv);
+    a.setStyle("fusion");
     bool test=c.createconnect();
+    maquette m;//hne badalt
+
     if(test)
     {m.show();//hne badalt
         QMessageBox::information(nullptr, QObject::tr("database is open"),

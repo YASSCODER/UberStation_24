@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,23 +26,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    QrCode.cpp \
     client.cpp \
         main.cpp \
-        mainwindow.cpp \
     connection.cpp \
-    maquette.cpp
+    maquette.cpp \
+    notif.cpp
 
 HEADERS += \
+    QrCode.h \
+    QrCode.hpp \
     client.h \
-        mainwindow.h \
     connection.h \
-    maquette.h
+    maquette.h \
+    notif.h
 
 FORMS += \
         mainwindow.ui \
         maquette.ui
 
+
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
