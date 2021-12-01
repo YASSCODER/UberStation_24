@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>maquette</class>
+ <widget class="QDialog" name="maquette">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1140</width>
+    <height>802</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>1051</width>
+     <height>601</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Voiture</string>
+    </attribute>
+    <widget class="QTabWidget" name="tabWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>1031</width>
+       <height>561</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="gestion">
+      <attribute name="title">
+       <string>Gestion</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1001</width>
+         <height>511</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Gestion de voiture :</string>
+       </property>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>20</y>
+          <width>421</width>
+          <height>371</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string> Affichage de Données :</string>
+        </property>
+        <widget class="QTableView" name="tab_voiture">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>401</width>
+           <height>331</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>531</width>
+          <height>271</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Ajout des voitures</string>
+        </property>
+        <widget class="QPushButton" name="PB_Ajout">
+         <property name="geometry">
+          <rect>
+           <x>420</x>
+           <y>230</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Ajouter</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>30</y>
+           <width>237</width>
+           <height>141</height>
+          </rect>
+         </property>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Matricule :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="Matricule"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Marque :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="Marque"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Genre :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="Genre"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>heure d'entrer :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="heure_E"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>heure de sortie :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="heure_S"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="image">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>20</y>
+           <width>281</width>
+           <height>191</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>image</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_upload">
+         <property name="geometry">
+          <rect>
+           <x>1140</x>
+           <y>550</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Upload</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_upload_2">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>230</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>upload image</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>300</y>
+          <width>381</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Suppression de données :</string>
+        </property>
+        <widget class="QPushButton" name="PB_supp">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>61</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Matricule :</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="M_supp">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>30</y>
+           <width>181</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QSplitter" name="splitter">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>400</y>
+          <width>186</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QPushButton" name="btn_edit">
+         <property name="text">
+          <string>Modiffier</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_afficher">
+         <property name="text">
+          <string>Afficher</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>380</y>
+          <width>321</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Calcule nombre de voiture :</string>
+        </property>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>131</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Nombre de voitures :</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btn_calculer">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>70</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Calculer</string>
+         </property>
+        </widget>
+        <widget class="QLCDNumber" name="res_calc">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>32</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="btn_stat">
+        <property name="geometry">
+         <rect>
+          <x>890</x>
+          <y>400</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>statistique</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>500</x>
+          <y>400</y>
+          <width>194</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="btn_imp">
+           <property name="text">
+            <string>imprimer</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_export">
+           <property name="text">
+            <string>Export EX</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Excel</string>
+      </attribute>
+      <widget class="QGroupBox" name="groupBox_6">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>40</y>
+         <width>701</width>
+         <height>441</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Prendre des notes :</string>
+       </property>
+       <widget class="QPlainTextEdit" name="transform">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>40</y>
+          <width>681</width>
+          <height>351</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="bt_transforme">
+        <property name="geometry">
+         <rect>
+          <x>600</x>
+          <y>400</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Transformer</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="title">
+       <string>image des voitures</string>
+      </attribute>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
