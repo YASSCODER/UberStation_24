@@ -402,12 +402,18 @@ void maquette::update_label()
     if (data == "1")
     {
         ui->etat_label->setText("Ouvert");
-        ui->etat_label_entrer->setText("la voiture est entrée");
+        QMessageBox::information (nullptr, QObject::tr("OK"),
+                    QObject::tr("la voiture est entrée\n"
+                                    "Click cancel to exist."), QMessageBox::Cancel);
+
 
     }else if (data == "0")
     {
         ui->etat_label->setText("Fermer");
-        ui->etat_label_entrer->setText("pas de voiture");
+        QMessageBox::information (nullptr, QObject::tr("OK"),
+                    QObject::tr("Pas de voiture\n"
+                                    "Click cancel to exist."), QMessageBox::Cancel);
+
     }
 
 
