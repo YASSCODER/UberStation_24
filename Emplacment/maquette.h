@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include "emplacement.h"
+#include "arduino.h"
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
 
 
 
@@ -61,6 +64,16 @@ private slots:
 
     void on_tab_emplacement_activated(const QModelIndex &index);
 
+
+
+    void update_label();
+
+    void on_pb_entrer_clicked();
+
+
+
+
+
 private:
     Emplacement E;
     Ui::maquette *ui;
@@ -72,6 +85,9 @@ private:
     QAction *mTurnOnAction;
     QAction *mTurnOffAction;
     QAction *mCaptureAction;
+
+    QByteArray data;
+    Arduino A;
 
 
 };

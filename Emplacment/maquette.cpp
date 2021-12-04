@@ -13,7 +13,9 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QPixmap>
-#include <iostream>
+#include "arduino.h"
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
 
 
 using namespace std;
@@ -26,14 +28,10 @@ maquette::maquette(QWidget *parent) :
 
     ui->setupUi(this);
 
-    //Localisation
+
 
 
     //Buttons
-
-
-
-
     ui->le_nb_max->setValidator(new QIntValidator(2, 999999, this));
     ui->le_prix->setValidator(new QIntValidator(3, 999999, this));
 
@@ -87,6 +85,25 @@ maquette::maquette(QWidget *parent) :
          mCameraImageCapture->capture(filename);
          mCamera->unlock();
      });
+
+     //Arduino
+     int ret = A.connect_arduino();
+    switch (ret)
+     {
+        case (0) : qDebug() << "Arduino is available and connected to:" << A.getarduino_port_name();
+                    break;
+
+        case (1) : qDebug() << "Arduino is available but not connected to:" << A.getarduino_port_name();
+                    break;
+
+
+        case (-1) : qDebug() << "Arduino is not available" ;
+
+     }
+
+     QObject ::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_label()));
+
+
 
 }
 
@@ -377,3 +394,30 @@ void maquette::on_tab_emplacement_activated(const QModelIndex &index)
     ui->le_nb_max->setText(ui->tab_emplacement->model()->data(ui->tab_emplacement->model()->index(index.row(),2)).toString());
     ui->le_prix->setText(ui->tab_emplacement->model()->data(ui->tab_emplacement->model()->index(index.row(),3)).toString());
 }
+
+
+void maquette::update_label()
+{
+    data = A.read_from_arduino();
+    if (data == "1")
+    {
+        ui->etat_label->setText("Ouvert");
+        ui->etat_label_entrer->setText("la voiture est entrée");
+
+    }else if (data == "0")
+    {
+        ui->etat_label->setText("Fermer");
+        ui->etat_label_entrer->setText("pas de voiture");
+    }
+
+
+}
+
+void maquette::on_pb_entrer_clicked()
+{
+    A.write_to_arduino("1");
+}
+
+
+
+

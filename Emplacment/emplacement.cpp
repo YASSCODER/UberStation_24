@@ -1,7 +1,7 @@
 #include "emplacement.h"
 #include "maquette.h"
 #include <QSqlQuery>
-#include <QtDebug>
+
 #include <QObject>
 #include <iostream>
 #include <QCamera>

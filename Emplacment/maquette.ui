@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -485,6 +485,89 @@
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Arduino</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>781</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>L'entrée d'une voiture</string>
+      </property>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>110</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Voiture</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_entrer">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>110</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>entrer</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>280</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Etat barrière : </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="etat_label">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>280</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Fermer</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="etat_label_entrer">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>110</y>
+         <width>211</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -493,7 +576,7 @@
      <x>0</x>
      <y>0</y>
      <width>1175</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
