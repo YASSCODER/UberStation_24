@@ -4,9 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
-QT       += printsupport
-QT += widgets
+QT       += core gui sql \
+    quick
+QT       += core gui charts
+QT      += printsupport
+QT  += core network
+QT  +=svg
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,36 +28,46 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 CONFIG += c++11
-
+CONFIG  += c++11 console
+CONFIG -= app_bundle
 SOURCES += \
     accident.cpp \
-    mail.cpp \
+    chatserver.cpp \
+    chatsocket.cpp \
+    dumessengerconnectiondialog.cpp \
+    employes.cpp \
+    exportexcel.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    maquette.cpp
+    maquette.cpp \
+    modifier.cpp \
+    qrcode.cpp \
+    voiture.cpp
 
 HEADERS += \
     accident.h \
-    mail.h \
+    chatserver.h \
+    chatsocket.h \
+    dumessengerconnectiondialog.h \
+    employes.h \
+    exportexcel.h \
         mainwindow.h \
     connection.h \
-    maquette.h
+    maquette.h \
+    modifier.h \
+    qrcode.h \
+    voiture.h
 
 FORMS += \
+        dumessengerconnectiondialog.ui \
         mainwindow.ui \
-        maquette.ui
+        maquette.ui \
+        modifier.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    logo.qrc
-
-STATECHARTS += \
-    ../UberStation_2A24-master/UberStation_2A24-master/integration/state.scxml
-
-DISTFILES += \
-    ../UberStation_2A24-master/UberStation_2A24-master/integration/data.csv
+STATECHARTS +=

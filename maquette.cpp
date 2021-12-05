@@ -179,8 +179,8 @@ void maquette::on_calculer_clicked()
 {
         ui->lcdNumber_calculer->display(A.calculernbacc());
 }
-/*
-void maquette::on_browse_clicked()
+
+/*void maquette::on_browse_clicked()
 {
 
         files.clear();
@@ -219,8 +219,8 @@ void maquette::on_email_clicked()
                                     QObject::tr("mail non envoyé. \n"
                                                 "Click Cancel to exist."),QMessageBox::Cancel);
 }
-
 */
+
 
 
 

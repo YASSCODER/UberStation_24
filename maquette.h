@@ -28,9 +28,9 @@ private slots:
 
     void on_rechercher_clicked();
 
-    //void on_email_clicked();
+    void on_email_clicked();
 
-    //void on_browse_clicked();
+    void on_browse_clicked();
 
     void on_imprimer_clicked();
 
@@ -39,7 +39,7 @@ private slots:
 private:
     Ui::maquette *ui;
     Accident A;
-     //QStringList files;
+     QStringList files;
 };
 
 #endif // MAQUETTE_H
