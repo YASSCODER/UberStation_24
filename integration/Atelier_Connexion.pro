@@ -33,6 +33,7 @@ CONFIG -= app_bundle
 SOURCES += \
     chatserver.cpp \
     chatsocket.cpp \
+    client.cpp \
     dumessengerconnectiondialog.cpp \
     employes.cpp \
     exportexcel.cpp \
@@ -41,12 +42,15 @@ SOURCES += \
     connection.cpp \
     maquette.cpp \
     modifier.cpp \
+    notif.cpp \
     qrcode.cpp \
     voiture.cpp
 
 HEADERS += \
+    QrCode.hpp \
     chatserver.h \
     chatsocket.h \
+    client.h \
     dumessengerconnectiondialog.h \
     employes.h \
     exportexcel.h \
@@ -54,7 +58,9 @@ HEADERS += \
     connection.h \
     maquette.h \
     modifier.h \
+    notif.h \
     qrcode.h \
+    qrcodeh.h \
     voiture.h
 
 FORMS += \

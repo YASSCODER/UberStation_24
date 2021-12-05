@@ -40,7 +40,8 @@
 #include <QAbstractSocket>
 #include<QTimer>
 #include<QDebug>
-
+#include"client.h"
+#include"notif.h"
 namespace Ui {
 class maquette;
 }
@@ -61,7 +62,7 @@ private slots:
 
     void on_btn_afficher_clicked();
 
-    void on_btn_edit_2_triggered(QAction *arg1);
+
 
     void on_btn_calculer_clicked();
 
@@ -108,12 +109,36 @@ private slots:
 
     void on_button_afficher_Ahmed_clicked();
 
+    void on_pb_ajouter_clicked();
+
+    void on_pb_modifier_clicked();
+
+    void on_pb_supprimer_clicked();
+
+    void on_pb_rechercher_clicked();
+
+    void on_pb_tri_CIN_clicked();
+
+    void on_pb_tri_nom_clicked();
+
+    void on_pb_tri_prenom_clicked();
+
+    void on_pb_tri_num_clicked();
+
+    void on_qrcodegen_clicked();
+
+    void on_pb_affichage_clicked();
+
+    void on_pb_imprimer_clicked();
+    void on_tab_client_activated(const QModelIndex &index);
+
 private:
     Ui::maquette *ui;
     Voiture V;
     employes Etmp;
     QTcpSocket *mSocket;
     QTimer *timer;
+    Client C;
 };
 
 #endif // MAQUETTE_H
