@@ -13,9 +13,7 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QPixmap>
-#include "arduino.h"
-#include <QtSerialPort/QSerialPort>
-#include <QtSerialPort/QSerialPortInfo>
+
 
 
 using namespace std;
@@ -423,7 +421,6 @@ void maquette::on_pb_entrer_clicked()
 {
     A.write_to_arduino("1");
 }
-
 
 
 
