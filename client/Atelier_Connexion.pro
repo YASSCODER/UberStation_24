@@ -6,6 +6,7 @@
 
 QT       += core gui sql
 QT       += printsupport
+QT += serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +28,7 @@ CONFIG += c++11
 
 SOURCES += \
     QrCode.cpp \
+    arduino.cpp \
     client.cpp \
         main.cpp \
     connection.cpp \
@@ -36,6 +38,7 @@ SOURCES += \
 HEADERS += \
     QrCode.h \
     QrCode.hpp \
+    arduino.h \
     client.h \
     connection.h \
     maquette.h \

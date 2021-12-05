@@ -5,6 +5,8 @@
 #include "client.h"
 #include <QPrinter>
 #include <QPrintDialog>
+#include "Arduino.h"
+
 
 namespace Ui {
 class maquette;
@@ -56,10 +58,15 @@ private slots:
     void on_pb_tri_num_clicked();
 
     void on_tab_client_activated(const QModelIndex &index);
+    void update_label();
+    void on_pb_entrer_clicked();
 
 private:
     Ui::maquette *ui;
     Client C;
+    Arduino A;
+    QByteArray data;
+
 
 
 };

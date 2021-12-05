@@ -10,6 +10,8 @@
 #include <QComboBox>
 #include "QrCode.hpp"
 #include "notif.h"
+#include "Arduino.h"
+
 
 using namespace qrcodegen;
 maquette::maquette(QWidget *parent) :
@@ -250,3 +252,32 @@ void maquette::on_tab_client_activated(const QModelIndex &index)
     ui->le_numTel->setText(ui->tab_client->model()->data(ui->tab_client->model()->index(index.row(),3)).toString());
 
 }
+
+void maquette::update_label()
+{
+    data = A.read_from_arduino();
+    if (data == "1")
+    {
+        ui->etat_label->setText("Ouvert");
+        QMessageBox::information (nullptr, QObject::tr("OK"),
+                    QObject::tr("la voiture est entrée\n"
+                                    "Click cancel to exist."), QMessageBox::Cancel);
+
+
+    }else if (data == "0")
+    {
+        ui->etat_label->setText("Fermer");
+        QMessageBox::information (nullptr, QObject::tr("OK"),
+                    QObject::tr("Pas de voiture\n"
+                                    "Click cancel to exist."), QMessageBox::Cancel);
+
+    }
+
+
+}
+
+void maquette::on_pb_entrer_clicked()
+{
+    A.write_to_arduino("1");
+}
+
